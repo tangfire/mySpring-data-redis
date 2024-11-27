@@ -1,4 +1,4 @@
-package com.fire.myspringdataredis.conf;
+package com.fire.myspringdataredis.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,8 +22,9 @@ public class RedisConfig {
         template.setKeySerializer(RedisSerializer.string());
         template.setHashKeySerializer(RedisSerializer.string());
         // 设置value的序列化
-        template.setValueSerializer(jsonRedisSerializer);
+//        template.setValueSerializer(jsonRedisSerializer);
         template.setHashValueSerializer(jsonRedisSerializer);
+        template.setValueSerializer(RedisSerializer.string());
         //返回
         return template;
     }
